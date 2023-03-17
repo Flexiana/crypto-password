@@ -20,7 +20,8 @@ Add the following dependency to your `project.clj` file:
 
 ## Usage
 
-Pick an encryption algorithm, either `pbkdf2`, `bcrypt`, `scrypt` or `argon2`:
+Pick an encryption algorithm, either `pbkdf2`, `bcrypt`, `scrypt`
+or `argon2`:
 
 ```clojure
 (require '[crypto.password.<algorithm> :as password])

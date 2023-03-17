@@ -1,10 +1,9 @@
 (ns crypto.password.argon2
-  "Functions for encrypting passwords using the recommended argon2 algorithm.
+ "Functions for encrypting passwords using the recommended argon2 algorithm.
 
-  See:
-  https://infosecscout.com/best-algorithm-password-storage
+  See: https://infosecscout.com/best-algorithm-password-storage
   https://github.com/phxql/argon2-jvm"
-  (:import (de.mkammerer.argon2 Argon2 Argon2Factory Argon2Advanced)))
+ (:import [de.mkammerer.argon2 Argon2 Argon2Factory Argon2Advanced]))
 
 (def argon2 (Argon2Factory/create))
 
@@ -22,7 +21,8 @@
   "Encrypt a password string using the argon2 algorithm. This function takes
   three optional parameters:
 
-  * `iter` - the number of iterations, defaults to 22 (see: Argon2Helper/findIterations)
+  * `iter` - the number of iterations, defaults to 22 (see:
+  Argon2Helper/findIterations)
   * `mem` - the memory cost, defaults to 65536
   * `parallel` - the parallelization parameter, defaults to 1"
   ([raw]
@@ -31,7 +31,7 @@
    (.hash argon2 iter mem parallel raw)))
 
 (defn check
-  "Compare a raw string with a string encrypted with the [[encrypt]] function.
-  Returns true if the string matches, false otherwise."
+  "Compare a raw string with a string encrypted with the [[encrypt]]
+  function.  Returns true if the string matches, false otherwise."
   [raw hash]
   (.verify argon2 hash raw))
